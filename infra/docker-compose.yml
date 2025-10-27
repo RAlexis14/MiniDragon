@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  backend:
+    build:
+      context: ../apps
+      dockerfile: backend/Dockerfile
+      args:
+        FRONTEND_DIR: frontend
+    container_name: minidragon
+    environment:
+      - FLASK_ENV=production
+      - SECRET_KEY=supersecret
+      - DRAGON_API_BASE=https://dragonball-api.com/api/characters
+      - DB_FILE=/data/minidragon.sqlite
+    volumes:
+      - ../apps/backend/data:/data
+    ports:
+      - "5000:5000"

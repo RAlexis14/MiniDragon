@@ -1,0 +1,21 @@
+body { background:#f6f7fb; }
+
+/* Caja para que la imagen no se corte feo */
+.img-box{
+  background:#fff;
+  height: 260px;               /* alto consistente */
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding: 8px;
+  border-bottom:1px solid #eee;
+}
+.card-img-top{
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;         /* que entre completa */
+}
+
+/* Hover lindo */
+.char-card { transition: transform .12s ease, box-shadow .12s ease; border-radius: .6rem; }
+.char-card:hover{ transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,.08); }
