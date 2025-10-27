@@ -3,12 +3,11 @@ name: Build and Push Docker Image (MiniDragon)
 on:
   push:
     branches:
-      - test  # se ejecuta solo cuando haces push a la rama test
+      - test
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -25,9 +24,9 @@ jobs:
       - name: Build and push backend image
         uses: docker/build-push-action@v5
         with:
-          context: ./apps              
+          context: ./apps
           file: ./apps/backend/Dockerfile
           build-args: |
-            FRONTEND_DIR=frontend      # pasa la carpeta del front
+            FRONTEND_DIR=frontend
           push: true
           tags: rommela462/minidragon-backend:latest
